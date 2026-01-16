@@ -43,6 +43,7 @@ return {
 				"black", -- python formatter
 				"pylint",
 				"eslint_d",
+				"html-lsp",
 			},
 		},
 		dependencies = {
