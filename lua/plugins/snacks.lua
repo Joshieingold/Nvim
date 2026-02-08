@@ -538,7 +538,17 @@ return {
 		explorer = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = false },
-		picker = { enabled = false },
+		picker = {
+			enabled = true,
+			defaults = {
+				close = true,
+			},
+			sources = {
+				explorer = {
+					auto_close = true,
+				},
+			},
+		},
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
