@@ -1,5 +1,4 @@
 return {
-	-- Test
 	"folke/tokyonight.nvim",
 	priority = 1000,
 	config = function()
@@ -41,6 +40,6 @@ return {
 		})
 
 		vim.cmd("colorscheme tokyonight")
-		vim.cmd("highlight Comment guifg=#c42d44 gui=italic")
+		vim.cmd("highlight Comment guifg=#FF8DA1 gui=italic")
 	end,
 }
