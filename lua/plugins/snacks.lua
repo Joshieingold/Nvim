@@ -1,3 +1,4 @@
+-- This is where hotkeys live
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
