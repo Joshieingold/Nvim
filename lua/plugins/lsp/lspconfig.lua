@@ -12,5 +12,21 @@ return {
 		vim.lsp.config("*", {
 			capabilities = capabilities,
 		})
+        vim.lsp.config("lua_ls", {
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					workspace = {
+						checkThirdParty = false,
+						library = {
+							"${3rd}/love2d/library",
+						},
+					},
+					telemetry = {
+						enable = false,
+					},
+				},
+			},
+		})
 	end,
 }
