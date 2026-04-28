@@ -436,13 +436,6 @@ return {
 			desc = "Dismiss All Notifications",
 		},
 		{
-			"<c-/>",
-			function()
-				Snacks.terminal()
-			end,
-			desc = "Toggle Terminal",
-		},
-		{
 			"]]",
 			function()
 				Snacks.words.jump(vim.v.count1)

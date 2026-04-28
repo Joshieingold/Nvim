@@ -19,10 +19,11 @@ return {
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
+				cpp = { "clang-format" },
 				python = { "isort", "black" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_fallback = false,
 				async = false,
 				timeout_ms = 3000,
 			},
@@ -30,13 +31,17 @@ return {
 				prettier = {
 					prepend_args = { "--tab-width", "4" },
 				},
+				["clang-format"] = {
+					prepend_args = { "--style={IndentWidth: 4}" },
+				},
 			},
 		})
 
+		-- Keymap for formatting in normal and visual mode
 		vim.keymap.set({ "n", "v" }, "==", function()
 			conform.format({
 				lsp_fallback = true,
-				async = false,
+				async = true,
 				timeout_ms = 1000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })

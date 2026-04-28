@@ -1,9 +1,9 @@
 return {
-	"scottmckendry/cyberdream.nvim",
+	"rose-pine/neovim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.cmd("colorscheme cyberdream")
+		vim.cmd("colorscheme rose-pine")
 
 		local transparent_groups = {
 			"Normal",
