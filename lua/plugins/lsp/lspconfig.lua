@@ -12,7 +12,22 @@ return {
 		vim.lsp.config("*", {
 			capabilities = capabilities,
 		})
-        vim.lsp.config("lua_ls", {
+		vim.lsp.config("clangd", {
+			capabilities = capabilities,
+			cmd = {
+				"clangd",
+				"--background-index",
+				"--clang-tidy",
+				"--query-driver=/usr/bin/c++,/usr/bin/g++",
+			},
+			init_options = {
+				fallbackFlags = {
+					"-std=c++20",
+				},
+			},
+		})
+		vim.lsp.enable("clangd")
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
