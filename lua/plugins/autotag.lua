@@ -24,28 +24,17 @@ return {
 				},
 				per_filetype = {
 					["html"] = {
-						enable_close = true, -- Enable auto-closing for HTML
+						enable_close = true,
 					},
 					["jsx"] = {
-						enable_close = true, -- Enable auto-closing for JSX
+						enable_close = true,
 					},
 					["tsx"] = {
-						enable_close = true, -- Enable auto-closing for TSX
+						enable_close = true,
 					},
 					["js"] = {
-						enable_close = true, -- Enable auto-closing for JS
+						enable_close = true,
 					},
-				},
-			})
-
-			-- nvim-treesitter configuration (ensure correct parsers are installed)
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "javascript", "typescript", "tsx", "html" },
-				highlight = {
-					enable = true, -- Enable Treesitter-based syntax highlighting
-				},
-				indent = {
-					enable = true, -- Enable Treesitter-based indentation
 				},
 			})
 		end,

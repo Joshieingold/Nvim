@@ -2,7 +2,6 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		opts = {
-			-- list of servers for mason to install
 			ensure_installed = {
 				"ts_ls",
 				"html",
@@ -37,10 +36,10 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = {
 			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
+				"prettier",
+				"stylua",
+				"isort",
+				"black",
 				"pylint",
 				"eslint_d",
 				"html-lsp",

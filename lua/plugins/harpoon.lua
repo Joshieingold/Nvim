@@ -6,7 +6,7 @@ return {
 	config = function()
 		local harpoon = require("harpoon")
 
-		settings = {
+		local settings = {
 			save_on_toggle = true,
 			sync_on_ui_close = true,
 			key = function()

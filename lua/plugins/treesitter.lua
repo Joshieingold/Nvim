@@ -9,6 +9,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"c",
+				"cpp",
 				"lua",
 				"vim",
 				"vimdoc",
@@ -23,7 +24,10 @@ return {
 				additional_vim_regex_highlighting = false,
 			},
 			autotag = { enable = true },
-			indent = { enable = true },
+
+			indent = {
+				enable = false,
+			},
 		},
 	},
 }

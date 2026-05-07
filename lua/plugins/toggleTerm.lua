@@ -4,7 +4,7 @@ return {
 		version = "*",
 		opts = {
 			size = vim.o.columns * 0.4,
-			open_mapping = [[<C-/>]], -- Ctrl + / to open the terminal
+			open_mapping = [[<C-/>]],
 			dir = "git_dir",
 			hide_numbers = false,
 			shade_terminals = true,
@@ -18,17 +18,17 @@ return {
 		},
 		keys = {
 			{
-				"<C-/>", -- Ctrl + / to toggle term
-				mode = "n", -- Only in normal mode
+				"<C-/>",
+				mode = "n",
 				desc = "Toggle term",
 			},
 			{
-				"<leader>/", -- Send current line to terminal on <leader>/
+				"<leader>/",
 				"<cmd>:ToggleTermSendCurrentLine<cr>",
 				desc = "Send current line to terminal",
 			},
 			{
-				"<leader>/", -- Send visual selection to terminal on <leader>/
+				"<leader>/",
 				"<cmd>:ToggleTermSendVisualSelection<cr>",
 				desc = "Send visual selection to terminal",
 				mode = "v",
