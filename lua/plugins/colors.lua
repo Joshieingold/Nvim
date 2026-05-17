@@ -1,9 +1,10 @@
 return {
-	"rose-pine/neovim",
+	"catppuccin/nvim",
 	lazy = false,
+	name = "catppuccin",
 	priority = 1000,
 	config = function()
-		vim.cmd("colorscheme rose-pine")
+		vim.cmd("colorscheme catppuccin")
 
 		local transparent_groups = {
 			"Normal",
