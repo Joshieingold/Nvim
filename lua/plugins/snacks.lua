@@ -201,13 +201,6 @@ return {
 			desc = "Diagnostics",
 		},
 		{
-			"<leader>sD",
-			function()
-				Snacks.picker.diagnostics_buffer()
-			end,
-			desc = "Buffer Diagnostics",
-		},
-		{
 			"<leader>sh",
 			function()
 				Snacks.picker.help()
@@ -241,13 +234,6 @@ return {
 				Snacks.picker.keymaps()
 			end,
 			desc = "Keymaps",
-		},
-		{
-			"<leader>sl",
-			function()
-				Snacks.picker.loclist()
-			end,
-			desc = "Location List",
 		},
 		{
 			"<leader>sm",
@@ -508,14 +494,11 @@ return {
 					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 				},
 				header = [[
-                                                                             
-               ████ ██████           █████      ██                     
-              ███████████             █████                             
-              █████████ ███████████████████ ███   ███████████   
-             █████████  ███    █████████████ █████ ██████████████   
-            █████████ ██████████ █████████ █████ █████ ████ █████   
-          ███████████ ███    ███ █████████ █████ █████ ████ █████  
-         ██████  █████████████████████ ████ █████ █████ ████ ██████ 
+|\ |         |  /  o       
+| \| ,-. ,-. | /   . ;-.-. 
+|  | |-' | | |/    | | | | 
+'  ' `-' `-' '     ' ' ' ' 
+
       ]],
 			},
 			sections = {
