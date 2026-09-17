@@ -14,7 +14,7 @@ return {
 			vim.filetype.add({
 				extension = {
 					razor = "razor",
-					cshtml = "html",
+					cshtml = "cshtml",
 				},
 			})
 

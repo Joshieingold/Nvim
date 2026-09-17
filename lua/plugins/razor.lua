@@ -22,15 +22,4 @@ return {
 			-- Configuration options can be modified here if required
 		},
 	},
-
-	-- Setup HTML & CSS servers via lspconfig for frontend support inside Razor
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				html = { filetypes = { "html", "razor", "cshtml" } },
-				cssls = { filetypes = { "css", "scss", "less", "razor", "cshtml" } },
-			},
-		},
-	},
 }

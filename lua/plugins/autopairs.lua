@@ -19,7 +19,20 @@ return {
 			},
 		})
 
-		require("nvim-ts-autotag").setup()
+		require("nvim-ts-autotag").setup({
+			filetypes = {
+				"html",
+				"razor",
+				"cshtml",
+				"javascript",
+				"javascriptreact",
+				"typescriptreact",
+				"vue",
+				"svelte",
+				"tsx",
+				"jsx",
+			},
+		})
 
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
