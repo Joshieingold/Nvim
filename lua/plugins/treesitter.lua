@@ -36,6 +36,7 @@ return {
 			require("nvim-treesitter.configs").setup(opts)
 
 			vim.treesitter.language.register("razor", "razor")
+			vim.treesitter.language.register("html", "cshtml")
 		end,
 	},
 }

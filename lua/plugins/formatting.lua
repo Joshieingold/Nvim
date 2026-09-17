@@ -27,13 +27,12 @@ return {
 				sql = { "sleek" },
 
 				cs = { "csharpier" },
-				razor = { "prettier", "csharpier" },
 			},
 
 			format_on_save = function(bufnr)
 				local ft = vim.bo[bufnr].filetype
-				if ft == "razor" then
-					return { lsp_fallback = true, async = false, timeout_ms = 3000 }
+				if ft == "razor" or ft == "cshtml" then
+					return { lsp_fallback = false, async = false, timeout_ms = 3000 }
 				end
 				return { lsp_fallback = false, async = false, timeout_ms = 3000 }
 			end,
