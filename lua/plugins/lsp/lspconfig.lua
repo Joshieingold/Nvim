@@ -15,6 +15,7 @@ return {
 				extension = {
 					razor = "razor",
 					cshtml = "cshtml",
+					jsp = "jsp",
 				},
 			})
 
@@ -58,7 +59,7 @@ return {
 
 			vim.lsp.config("html", {
 				capabilities = capabilities,
-				filetypes = { "html", "razor", "cshtml" },
+				filetypes = { "html", "razor", "cshtml", "jsp" },
 			})
 			vim.lsp.enable("html")
 

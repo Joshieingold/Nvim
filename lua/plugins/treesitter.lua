@@ -37,6 +37,7 @@ return {
 
 			vim.treesitter.language.register("razor", "razor")
 			vim.treesitter.language.register("html", "cshtml")
+			vim.treesitter.language.register("html", "jsp")
 		end,
 	},
 }

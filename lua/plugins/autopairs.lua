@@ -15,7 +15,7 @@ return {
 			ts_config = {
 				lua = { "string" },
 				javascript = { "template_string" },
-				java = false,
+				java = true,
 			},
 		})
 
@@ -24,6 +24,9 @@ return {
 				enable_close = true,
 				enable_rename = true,
 				enable_close_on_slash = false,
+			},
+			aliases = {
+				jsp = "html",
 			},
 			per_filetype = {
 				razor = {
@@ -42,6 +45,7 @@ return {
 				"svelte",
 				"tsx",
 				"jsx",
+				"jsp",
 			},
 		})
 
