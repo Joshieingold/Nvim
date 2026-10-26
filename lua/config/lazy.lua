@@ -1,4 +1,4 @@
--- Bootstrap lazy.nvim
+-- Bootstrap lazy.nvim, then load every spec under lua/plugins/<group>/*.lua
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -15,18 +15,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "
-
--- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		-- import your plugins
-		{ import = "plugins" },
+		-- Order matters: later groups can extend specs from earlier ones
+		-- (e.g. lang/* adds treesitter parsers and Mason packages).
+		{ import = "plugins.ui" },
+		{ import = "plugins.editor" },
+		{ import = "plugins.coding" },
 		{ import = "plugins.lsp" },
+		{ import = "plugins.lang" },
 	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "habamax" } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
+	install = { colorscheme = { "nordic", "habamax" } },
+	checker = { enabled = true }, -- periodically check for plugin updates
 })

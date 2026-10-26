@@ -1,88 +1,39 @@
+-- Core LSP wiring. Per-server settings are NOT here: each server has its own
+-- file in <config>/lsp/<server>.lua (native Neovim 0.11 mechanism), e.g.
+-- lsp/clangd.lua, lsp/lua_ls.lua, lsp/html.lua, lsp/roslyn.lua.
+--
+-- To configure a new server: create lsp/<name>.lua returning a table, and either
+-- add it to the enable-list below (system-installed server) or to
+-- ensure_installed in lsp/mason.lua (mason-lspconfig enables those itself).
 return {
-	{
+	"neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
+	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/lazydev.nvim", opts = {} },
-			{ "jlcrochet/vim-razor", ft = { "razor", "cshtml" } },
-		},
-		config = function()
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-			local capabilities = cmp_nvim_lsp.default_capabilities()
-
-			vim.filetype.add({
-				extension = {
-					razor = "razor",
-					cshtml = "cshtml",
-					jsp = "jsp",
-				},
-			})
-
-			vim.lsp.config("*", {
-				capabilities = capabilities,
-			})
-
-			vim.lsp.config("clangd", {
-				capabilities = capabilities,
-				cmd = {
-					"clangd",
-					"--background-index",
-					"--clang-tidy",
-					"--query-driver=/usr/bin/c++,/usr/bin/g++",
-				},
-				init_options = {
-					fallbackFlags = {
-						"-std=c++20",
-					},
-				},
-			})
-			vim.lsp.enable("clangd")
-
-			vim.lsp.config("lua_ls", {
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						workspace = {
-							checkThirdParty = false,
-							library = {
-								"${3rd}/love2d/library",
-							},
-						},
-						telemetry = {
-							enable = false,
-						},
-					},
-				},
-			})
-			vim.lsp.enable("lua_ls")
-
-			vim.lsp.config("html", {
-				capabilities = capabilities,
-				filetypes = { "html", "razor", "cshtml", "jsp" },
-			})
-			vim.lsp.enable("html")
-
-			vim.lsp.config("cssls", {
-				capabilities = capabilities,
-				filetypes = { "css", "scss", "less", "razor", "cshtml" },
-			})
-			vim.lsp.enable("cssls")
-		end,
+		"williamboman/mason-lspconfig.nvim",
+		{ "folke/lazydev.nvim", ft = "lua", opts = {} }, -- Neovim API types for lua_ls
 	},
+	config = function()
+		-- Every server gets cmp's completion capabilities
+		vim.lsp.config("*", {
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		})
 
-	{
-		"seblyng/roslyn.nvim",
-		ft = { "cs", "razor", "cshtml" },
-		dependencies = { "williamboman/mason.nvim" },
-		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- Servers that are enabled explicitly (clangd comes from your system,
+		-- the rest are also auto-enabled by mason-lspconfig; enabling twice is harmless).
+		vim.lsp.enable({ "clangd", "lua_ls", "html", "cssls", "emmet_ls" })
 
-			require("roslyn").setup({
-				config = {
-					capabilities = capabilities,
-				},
-			})
-		end,
-	},
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("user_lsp_attach", { clear = true }),
+			desc = "LSP buffer-local keymaps",
+			callback = function(event)
+				local function map(lhs, rhs, desc)
+					vim.keymap.set("n", lhs, rhs, { buffer = event.buf, desc = "LSP: " .. desc })
+				end
+				map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+				map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+				-- Navigation (gd, gr, gI, ...) lives in editor/snacks.lua
+			end,
+		})
+	end,
 }
