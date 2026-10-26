@@ -87,10 +87,3 @@ Removed (run `:Lazy clean` afterwards)
 Added (small)
 
 - `<leader>rn` rename, `<leader>ca` code action (on LSP attach); `<Tab>`/`<S-Tab>` to jump within snippets; yank highlight; `todo-comments` is now actually set up so `:Trouble todo` works; `clang-format` and `csharpier` in Mason.
-
-## Things to double-check
-
-- Nerd-Font glyphs were lost when the config was pasted (dashboard icons, lualine separators). I used the plugins' defaults, which look the same.
-- Razor tooling in Neovim moves quickly. The roslyn.nvim setup here follows its current README, but verify with the first-run steps above.
-- I assumed the treesitter `razor` parser installs on your `master` branch (you already listed it). If it doesn't, `vim-razor` provides fallback syntax.
-- The `.cshtml → razor` filetype change is what lets roslyn attach; if you relied on a separate `cshtml` filetype, revisit `config/filetypes.lua`.
