@@ -1,24 +1,31 @@
--- Dependency-free Nordic-inspired colorscheme.
--- No nordic.nvim and no Lush are required to use this theme.
 vim.cmd("highlight clear")
 if vim.fn.exists("syntax_on") then
-    vim.cmd("syntax reset")
+	vim.cmd("syntax reset")
 end
 vim.o.termguicolors = true
 vim.g.colors_name = "nordic_custom"
 
 local c = {
-    bg = "#242933", bg_alt = "#2E3440", fg = "#D8DEE9",
-    muted = "#616E88", comment = "#E6BCC8", blue = "#81A1C1",
-    teal = "#A5CED5", cyan = "#88C0D0", green = "#A3BE8C",
-    yellow = "#EBCB8B", orange = "#D08770", red = "#BF616A",
-    purple = "#B48EAD", visual = "#434C5E",
+	bg = "#242933",
+	bg_alt = "#2E3440",
+	fg = "#D8DEE9",
+	muted = "#616E88",
+	comment = "#E6BCC8",
+	blue = "#81A1C1",
+	teal = "#A5CED5",
+	cyan = "#88C0D0",
+	green = "#A3BE8C",
+	yellow = "#EBCB8B",
+	orange = "#D08770",
+	red = "#BF616A",
+	purple = "#B48EAD",
+	visual = "#434C5E",
 }
 local transparent = vim.g.transparent_background ~= false
 local bg = transparent and "NONE" or c.bg
 local bg_alt = transparent and "NONE" or c.bg_alt
 local function hi(group, spec)
-    vim.api.nvim_set_hl(0, group, spec)
+	vim.api.nvim_set_hl(0, group, spec)
 end
 
 -- Core UI
