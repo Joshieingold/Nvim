@@ -7,20 +7,17 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local harpoon = require("harpoon")
-
-		-- NOTE: in your old config this `settings` table was defined but never
-		-- passed to setup(), so it had no effect. Now it does.
 		harpoon:setup({
 			settings = {
 				save_on_toggle = true,
 				sync_on_ui_close = true,
 				key = function()
-					return vim.uv.cwd() -- one list per working directory
+					return nvim.uv.cwd() -- one list per working directory
 				end,
 			},
 		})
 
-		local map = vim.keymap.set
+		local map = nvim.keymap.set
 		map("n", "<leader>a", function()
 			harpoon:list():add()
 		end, { desc = "Harpoon: add file" })
