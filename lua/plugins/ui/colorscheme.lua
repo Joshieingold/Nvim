@@ -1,4 +1,4 @@
-local active = "nordic_custom" -- "nordic_custom" | "blossom" | "nordic"
+local active = "rose_pine" -- "nordic_custom" | "blossom" | "nordic" | "rose_pine"
 
 return {
 	"AlexvZyl/nordic.nvim",
