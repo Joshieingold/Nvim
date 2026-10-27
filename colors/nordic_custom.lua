@@ -70,6 +70,8 @@ hi("Type", { fg = c.yellow })
 hi("Special", { fg = c.teal })
 hi("Todo", { fg = c.bg, bg = c.yellow, bold = true })
 hi("Error", { fg = c.red, bold = true })
+hi("Parameter", { fg = c.yellow })
+hi("Property", { fg = c.yellow })
 
 -- Diagnostics and diffs
 hi("DiagnosticError", { fg = c.red })
@@ -84,7 +86,7 @@ hi("DiffDelete", { fg = c.red })
 
 -- Treesitter captures (groups fall back to legacy syntax groups where applicable)
 hi("@comment", { link = "Comment" })
-hi("@variable", { fg = c.fg })
+hi("@variable", { fg = c.teal })
 hi("@function", { fg = c.cyan })
 hi("@keyword", { fg = c.blue })
 hi("@string", { fg = c.green })
