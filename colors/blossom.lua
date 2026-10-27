@@ -4,4 +4,4 @@ if vim.fn.exists("syntax_on") then
 	vim.cmd("syntax reset")
 end
 vim.g.colors_name = "blossom"
-require("lush")(require("lush_theme.bossom"))
+require("lush")(require("lush_theme.blossom"))
