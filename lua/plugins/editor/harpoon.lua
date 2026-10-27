@@ -12,12 +12,12 @@ return {
 				save_on_toggle = true,
 				sync_on_ui_close = true,
 				key = function()
-					return nvim.uv.cwd() -- one list per working directory
+					return vim.uv.cwd() -- one list per working directory
 				end,
 			},
 		})
 
-		local map = nvim.keymap.set
+		local map = vim.keymap.set
 		map("n", "<leader>a", function()
 			harpoon:list():add()
 		end, { desc = "Harpoon: add file" })
