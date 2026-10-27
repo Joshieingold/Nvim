@@ -192,11 +192,12 @@ return {
 				-- New File, Find Text, Recent, Config, Restore Session, Lazy, Quit)
 				-- match what you had, with proper icons.
 				header = [[
-|\ |         |  /  o
-| \| ,-. ,-. | /   . ;-.-.
-|  | |-' | | |/    | | | |
+|\ |         |  /  o       
+| \| ,-. ,-. | /   . ;-.-. 
+|  | |-' | | |/    | | | | 
 '  ' `-' `-' '     ' ' ' ' 
-]],
+
+      ]],
 			},
 			sections = {
 				{ section = "header" },
