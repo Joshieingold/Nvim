@@ -140,6 +140,7 @@ A modular Neovim setup for programming, navigation, LSP support, completion, for
 | `<Space>rn`               | Rename symbol (when an LSP is attached) |
 | `<Space>ca`               | Code action (when an LSP is attached)   |
 | `<Space>k`                | Show diagnostic under cursor            |
+| `<Space>cc`               | Show code complexity                    |
 
 ### Editing, terminal, and diagnostics
 
@@ -163,6 +164,7 @@ A modular Neovim setup for programming, navigation, LSP support, completion, for
 | `Ctrl-e`                  | Harpoon quick menu                                           |
 | `Ctrl-h/j/k/l`            | Jump to Harpoon file 1/2/3/4                                 |
 | `S{motion}{char}`         | Surround selected text with the char                         |
+| `<Space>md`               | Start/Stop Markdown Preview                                  |
 
 ### Insert mode and snippets
 
